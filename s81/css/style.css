@@ -1,0 +1,57 @@
+:root {
+  --primary-color: #0069d9;
+  --secondary-color: #0056b3;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: var(--primary-color) !important;
+}
+
+#hero {
+  background: var(--primary-color) url('../images/hero-bg.jpg') center/cover no-repeat;
+}
+
+.card-title {
+  color: var(--primary-color);
+}
+
+.promo-image {
+  width: 100%;
+  max-width: 600px;           /* or whatever you need */
+  aspect-ratio: 16/9;         /* keeps the same box shape */
+  position: relative;         /* so the icon can be absolutely positioned */
+  border-radius: .5rem;
+  overflow: hidden;           /* crop the image to fit the box */
+  background-color: #fff;     /* fallback bg for placeholder */
+}
+
+/* make the actual <img> fill the box */
+.promo-image__img {
+  width: 100%;
+  height: 100%;               /* change from auto → full height */
+  object-fit: cover;          /* cover the box (cropping if needed) */
+  object-position: center;
+  display: block;             /* remove any inline whitespace */
+}
+
+/* center the placeholder icon behind the img */
+.promo-image__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #cbd5e1;
+  pointer-events: none;       /* click through it */
+  transition: opacity 0.3s;
+}
+
+/* hide icon once the image loads */
+.promo-image__img:loaded + .promo-image__icon,
+.promo-image__img[complete] + .promo-image__icon {
+  opacity: 0;
+}
+
+
+
